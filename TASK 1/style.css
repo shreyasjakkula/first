@@ -1,0 +1,98 @@
+.card {
+    border-style: solid;
+    border-color: #000000;
+    color: black;
+    background-size: cover;
+    margin: 20px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.main-heading {
+    font-size: 40px;
+    color: black;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.card-heading {
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.card-size {
+    width: 270px;
+    height: 250px;
+}
+
+.canva-card {
+    border-style: solid;
+    border-color: #000000;
+    color: black;
+    background-size: cover;
+    margin: 20px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-left: 180px;
+}
+
+.appdev-card {
+    border-style: solid;
+    border-color: #000000;
+    color: black;
+    background-size: cover;
+    margin: 20px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-left: 30px;
+}
+
+
+.first-card {
+    width: 280px;
+    height: 250px;
+}
+
+.meme {
+    margin-left: 250px;
+    width: 280px;
+    height: 200px;
+    margin-top: 50px;
+}
+
+.footer-card {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    width: 250px;
+    height: 200px;
+    margin-left: 415px;
+    margin-top: 43.5px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+.socials-text {
+    font-size: 33px;
+    padding-top: 6px;
+}
+
+.icons-size {
+    width: 25px;
+    height: 25px;
+}
+
+.icons-place {
+    margin-left: 110px;
+    margin-top: 15px;
+}
+
+.footer-text {
+    font-size: 15px;
+    text-align: center;
+    padding-left: 3.6px;
+}
+
+.c-align {
+    margin-left: 640px;
+}
