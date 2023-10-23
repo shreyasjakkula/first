@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form by VaultsofCode</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>User Registration Form</h2>
+        <div class="form-container">
+            <form id="myform" action="" method="get" accept-charset="utf-8">
+                <div class="input-name">
+                    <i class="fa fa-user"></i>
+                    <input type="text" placeholder="First Name" class="name" required>
+                    <span>
+                        <i class="fa fa-user"></i>
+                        <input type="text" placeholder="Last Name" class="name" required>
+                    </span>
+                </div>
+
+                <div class="input-name">
+                    <i class="fa fa-envelope email"></i>
+                    <input type="email" placeholder="Email" class="text-name" required>
+                </div>
+                <div class="input-name">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" id="passwordStrength" placeholder="Password" class="text-name" required>
+                </div>
+                <div class="input-name">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" class="text-name" required>
+                </div>
+                <div class="input-name">
+                    <progress id="passwordStrengthMeter" max="100" value="0"></progress>
+                    <span id="strengthText" class="strength-text">Strength</span>
+                </div>
+
+                <div class="input-name">
+                    <input type="radio" class="radio-button" name="r1">
+                    <label style="margin-right: 10px;">Male</label>
+                    <input type="radio" class="radio-button" name="r1">
+                    <label>Female</label>
+                    <input type="radio" class="radio-button" name="r1">
+                    <label>Other</label>
+                </div>
+
+                <div class="input-name">
+                    <select class="country">
+                        <option>Select a Country</option>
+                        <option>India</option>
+                        <option>Australia</option>
+                        <option>South Korea</option>
+                        <option>Japan</option>
+                        <option>China</option>
+                    </select>
+                    <div class="arrow">
+                    </div>
+                </div>
+
+                <div class="input-name">
+                    <label>DOB</label>
+                    <br/>
+                    <input type="date" id="DateOfBirth" name="DOB" class="date-button">
+                </div>
+                <div class="input-name">
+                    <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
+                </div>
+        
+                <div class="input-name">
+                    <input type="checkbox" class="check-button">
+                    <label>I Accept Terms and Conditions</label>
+                </div>
+                <div class="input-name">
+                    <input type="submit" class="button" value="Register">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        const passwordInput = document.getElementById('passwordStrength');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const passwordMeter = document.getElementById('passwordStrengthMeter');
+        const strengthText = document.getElementById('strengthText');
+
+        passwordInput.addEventListener('input', function () {
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            if (confirmPassword !== '' && password !== confirmPassword) {
+                strengthText.textContent = 'Passwords do not match';
+                passwordMeter.value = 0;
+            } else {
+                const strength = checkPasswordStrength(password);
+                updatePasswordMeter(strength);
+            }
+        });
+
+        confirmPasswordInput.addEventListener('input', function () {
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            if (confirmPassword !== '' && password !== confirmPassword) {
+                strengthText.textContent = 'Passwords do not match';
+                passwordMeter.value = 0;
+            } else {
+                const strength = checkPasswordStrength(password);
+                updatePasswordMeter(strength);
+            }
+        });
+
+        function updatePasswordMeter(strength) {
+            switch (strength) {
+                case 'Weak (too short)':
+                    passwordMeter.value = 25;
+                    strengthText.textContent = 'Weak';
+                    break;
+                case 'Weak (missing criteria)':
+                    passwordMeter.value = 50;
+                    strengthText.textContent = 'Moderate';
+                    break;
+                case 'Strong':
+                    passwordMeter.value = 100;
+                    strengthText.textContent = 'Strong';
+                    break;
+            }
+        }
+
+        function checkPasswordStrength(password) {
+            const minLength = 8;
+            const hasUppercase = /[A-Z]/.test(password);
+            const hasLowercase = /[a-z]/.test(password);
+            const hasNumbers = /\d/.test(password);
+            const hasSpecialChars = /[!@#$%^&*()_+{}[]:;<>,.?~\\-]/.test(password);
+
+            if (password.length < minLength) {
+                return 'Weak (too short)';
+            }
+
+            if (hasUppercase && hasLowercase && hasNumbers && hasSpecialChars) {
+                return 'Strong';
+            }
+
+            return 'Weak (missing criteria)';
+        }
+    </script>
+</body>
+</html>
